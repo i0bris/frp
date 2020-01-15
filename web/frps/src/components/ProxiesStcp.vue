@@ -12,7 +12,7 @@
             <my-traffic-chart :proxy_name="props.row.name"></my-traffic-chart>
           </el-popover>
   
-          <el-button v-popover:popover4 type="primary" size="small" icon="view" style="margin-bottom:10px">流量统计</el-button>
+                <el-button v-popover:popover4 type="primary" size="small" icon="view" :name="props.row.name" style="margin-bottom:10px" @click="fetchData2">流量统计</el-button>
   
           <el-form label-position="left" inline class="demo-table-expand">
             <el-form-item label="代理名称">
@@ -21,11 +21,8 @@
             <el-form-item label="协议类型">
               <span>{{ props.row.type }}</span>
             </el-form-item>
-            <el-form-item label="域名">
-              <span>{{ props.row.custom_domains }}</span>
-            </el-form-item>
-            <el-form-item label="子域名">
-              <span>{{ props.row.subdomain }}</span>
+            <el-form-item label="地址">
+              <span>{{ props.row.addr }}</span>
             </el-form-item>
             <el-form-item label="加密">
               <span>{{ props.row.encryption }}</span>
@@ -40,7 +37,7 @@
               <span>{{ props.row.last_close_time }}</span>
             </el-form-item>
         </el-form>
-    </template>
+        </template>
     </el-table-column>
     <el-table-column
       label="代理名称"
@@ -78,7 +75,7 @@
         <el-tag type="danger" v-else>{{ scope.row.status }}</el-tag>
       </template>
     </el-table-column>
-</el-table>
+  </el-table>
 </div>
 </template>
 
