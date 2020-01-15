@@ -12,66 +12,66 @@
             <my-traffic-chart :proxy_name="props.row.name"></my-traffic-chart>
           </el-popover>
   
-          <el-button v-popover:popover4 type="primary" size="small" icon="view" :name="props.row.name" style="margin-bottom:10px" @click="fetchData2">Traffic Statistics</el-button>
+          <el-button v-popover:popover4 type="primary" size="small" icon="view" :name="props.row.name" style="margin-bottom:10px" @click="fetchData2">流量统计</el-button>
   
           <el-form label-position="left" inline class="demo-table-expand">
-            <el-form-item label="Name">
+            <el-form-item label="代理名称">
               <span>{{ props.row.name }}</span>
             </el-form-item>
-            <el-form-item label="Type">
+            <el-form-item label="协议类型">
               <span>{{ props.row.type }}</span>
             </el-form-item>
-            <el-form-item label="Addr">
+            <el-form-item label="地址">
               <span>{{ props.row.addr }}</span>
             </el-form-item>
-            <el-form-item label="Encryption">
+            <el-form-item label="加密">
               <span>{{ props.row.encryption }}</span>
             </el-form-item>
-            <el-form-item label="Compression">
+            <el-form-item label="压缩">
               <span>{{ props.row.compression }}</span>
             </el-form-item>
-            <el-form-item label="Last Start">
+            <el-form-item label="最后开始时间">
               <span>{{ props.row.last_start_time }}</span>
             </el-form-item>
-            <el-form-item label="Last Close">
+            <el-form-item label="最后结束时间">
               <span>{{ props.row.last_close_time }}</span>
             </el-form-item>
         </el-form>
         </template>
     </el-table-column>
     <el-table-column
-      label="Name"
+      label="代理名称"
       prop="name"
       sortable>
     </el-table-column>
     <el-table-column
-      label="Port"
+      label="端口"
       prop="port"
       sortable>
     </el-table-column>
     <el-table-column
-      label="Connections"
+      label="当前连接数"
       prop="conns"
       sortable>
     </el-table-column>
     <el-table-column
-      label="Traffic In"
+      label="入网流量"
       prop="traffic_in"
       :formatter="formatTrafficIn"
       sortable>
     </el-table-column>
     <el-table-column
-      label="Traffic Out"
+      label="出网流量"
       prop="traffic_out"
       :formatter="formatTrafficOut"
       sortable>
     </el-table-column>
     <el-table-column
-      label="status"
+      label="状态"
       prop="status"
       sortable>
       <template slot-scope="scope">
-        <el-tag type="success" v-if="scope.row.status === 'online'">{{ scope.row.status }}</el-tag>
+        <el-tag type="success" v-if="scope.row.status === '在线'">{{ scope.row.status }}</el-tag>
         <el-tag type="danger" v-else>{{ scope.row.status }}</el-tag>
       </template>
     </el-table-column>
